@@ -1,0 +1,133 @@
+/* Basic resets and styling */
+@keyframes scaleLogo {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.7);
+  }
+}
+
+/* Splash Screen */
+.splash-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  animation: fadeOut 1.5s ease-in-out 1.5s forwards; /* Delay fade-out */
+}
+
+/* Logo inside the splash screen */
+.splash-logo {
+  width: 400px; /* Original size */
+  height: auto;
+  animation: moveToTopLeft 4s ease-in-out forwards; /* Animate logo to navbar */
+}
+
+/* Keyframes for moving the logo to the top left */
+@keyframes moveToTopLeft {
+  0% {
+    transform: translate(0, 0) scale(1); /* Centered */
+  }
+  100% {
+    transform: translate(-43.5vw, -40vh) scale(0.4); /* Moves to top-left corner */
+  }
+}
+
+/* Keyframes for fading out the splash screen */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #0A192F;
+}
+
+
+/* Example utility classes */
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  margin-bottom: 1.2rem;
+  color: #ff6f00;
+}
+
+.serviceCard h2 {
+  color: #ff6f00;
+}
+
+.section p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Simple button style */
+.btn-primary {
+  background-color: #1A73E8;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #1558a6;
+}
+
+.animated-underline {
+  position: relative;    /* Needed for ::after positioning */
+  cursor: pointer;       /* Optional: show pointer on hover */
+  text-decoration: none; /* Remove default underline if any */
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0; 
+  bottom: -2px;               /* Slightly below the text */
+  height: 2px;                /* Thickness of the underline */
+  background: #d95939;        /* Color of the underline */
+  
+  /* Start with a 0 scale so the line is invisible */
+  transform: scaleX(0);
+  transform-origin: right center; /* Grows from right to left */
+  
+  /* Smooth animation */
+  transition: transform 0.3s ease;
+}
+
+/* When hovering, scale X to 1 to fully show the line */
+.animated-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center; /* Grows back to the left */
+}
+
+/**/
